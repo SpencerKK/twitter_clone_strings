@@ -1,5 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const db = require("../../config/db.config");
 const router = express.Router();
 
@@ -31,10 +32,29 @@ router.post("/register", (req, res) => {
             db.query("INSERT INTO users SET ?", userInsertData, (err, rows, fields) => {
                 if (err) {
                     console.log(err.message);
-                } else {
-                    res.json({ theRows: rows })
+                } else { 
+                    console.log("User Created")
                 }
             })
+
+            let payload = {
+                user: {
+                    name
+                }
+            }
+
+            jwt.sign(
+                payload,
+                process.env.jwtSecret,
+                { expiresIn: "360000" },
+                (err, token) => {
+                    if (err) {
+                        console.log(err.message)
+                    } else {
+                        res.json({ token })
+                    }
+                }
+            )
         }
     })
 })
