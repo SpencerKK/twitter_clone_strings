@@ -39,7 +39,7 @@ router.post("/register", (req, res) => {
 
             let payload = {
                 user: {
-                    name
+                    email
                 }
             }
 
