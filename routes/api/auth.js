@@ -6,6 +6,8 @@ const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 dotenv.config({ path: "../../.env" });
 
+const authMid = require("../../middleware/authMid");
+
 
 // post
 // api/auth
@@ -33,8 +35,15 @@ router.post("/", (req, res) => {
                 const isMatch = await bcrypt.compare(password, row[0].password);
     
                 if (isMatch) {
-                    const token = jwt.sign({ payload }, process.env.jwtSecret);
-                    res.json(token);
+                    jwt.sign(
+                        payload,
+                        process.env.jwtSecret,
+                        { expiresIn: 360000 },
+                        (err, token) => {
+                            if (err) throw err;
+                            res.json({ token });
+                        }
+                    )
                 } else {
                     res.json({ msg: "Invalid Credentials..." })
                 }
@@ -43,4 +52,61 @@ router.post("/", (req, res) => {
     })
 })
 
+router.get("/", authMid, (req, res) => {
+    try {
+        let emailInToken = req.user;
+
+        let sql = "SELECT name, email FROM users WHERE email = ?";
+
+       db.query(sql, [emailInToken.email], (err, row) => {
+           if (err) {
+               console.log(err);
+           } else {
+               res.json(row[0])
+           }
+       })
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error")
+    }
+})
+
+
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// router.get("/", authMid, async (req, res) => {
+//     try {
+//         let userEmail = req.user.email;
+//         let sql = "SELECT name, email FROM users WHERE email = ?";
+
+//         db.query(sql, [userEmail], async (err, row) => {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 if (row.length === 1) {
+//                     res.json(row[0])
+//                 } else {
+//                     res.json({ msg: "Fucked up" })
+//                 }
+//             }
+//         })
+//     } catch(err) {
+//         console.error(err.message);
+//         res.status(500).send("Server Error")
+//     }
+// })
