@@ -8,12 +8,13 @@ import {
 
 // components
 import Navigation from "./components/Navigation";
+import WelcomePage from "./components/WelcomePage";
 
 function App() {
    return (
       <Router>
          <div className="App">
-            <Navigation />
+            <WelcomePage />
          </div>
       </Router>
    );

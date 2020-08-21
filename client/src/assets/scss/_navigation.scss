@@ -1,24 +1,21 @@
 .site-navigation {
     height: 65px;
     width: 100%;
-    background-color: #fff;
     display: flex;
     justify-content: space-between;
-    color: #000;
-    background: $nav-bg-yellow;
-    color: $site-bg-color;
+    color: #fff;
+    background: #000;
 
     span {
         font-size: 34px;
         font-weight: 700;
         display: flex;
         align-items: center;
-        margin-left: 30px;
-
+        margin-left: 40px;
     }
 
     .fa-bars {
-        font-size: 36px;
+        font-size: 32px;
         width: 65px;
         align-items: center;
         cursor: pointer;
@@ -46,16 +43,16 @@
         list-style-type: none;
         padding-right: 25px;
         align-items: center;
-        font-weight: 500;
+        font-weight: 400;
 
         a {
             text-decoration: none;
             padding: 0 20px 0 20px;
             font-size: 18px;
-            color: #000;
+            color: #fff;
 
             &:hover {
-                color: #22222279;
+                color: rgb(152, 152, 152);
             }
         }
     }
@@ -66,7 +63,7 @@
         .menu-content-container {
             width: 300px;
             height: calc(100% - 65px);
-            background: $nav-bg-yellow;
+            background: rgb(28, 28, 28);
             position: absolute;
             top: 65px;
             left: -350px;
@@ -75,7 +72,7 @@
             padding: 0;
             padding-left: 30px;
             padding-top: 20px;
-            border-top: 1px solid $site-bg-color;
+            border-top: 1px solid gold;
 
             .fa-user-astronaut {
                 font-size: 20px;
