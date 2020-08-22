@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcryptjs");
 const db = require("../../config/db.config");
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 dotenv.config({ path: "../../.env" });
 
@@ -26,6 +26,7 @@ router.post("/", (req, res) => {
             if (row.length === 0) {
                 res.json({ msg: "Invalid credentials" })
             } else {
+
                 let payload = {
                     user: {
                         email
@@ -42,6 +43,7 @@ router.post("/", (req, res) => {
                         (err, token) => {
                             if (err) throw err;
                             res.json({ token });
+                            
                         }
                     )
                 } else {
@@ -52,6 +54,11 @@ router.post("/", (req, res) => {
     })
 })
 
+
+// get
+// api/auth
+// sends token in request, returns user details
+// private
 router.get("/", authMid, (req, res) => {
     try {
         let emailInToken = req.user;

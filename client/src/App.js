@@ -6,17 +6,23 @@ import {
    Redirect,
 } from "react-router-dom";
 
+// redux
+import store from "./store";
+import { Provider } from "react-redux";
+
 // components
 import Navigation from "./components/Navigation";
 import WelcomePage from "./components/WelcomePage";
 
 function App() {
    return (
-      <Router>
-         <div className="App">
-            <WelcomePage />
-         </div>
-      </Router>
+      <Provider store={store}>
+         <Router>
+            <div className="App">
+               <WelcomePage />
+            </div>
+         </Router>
+      </Provider>
    );
 }
 
