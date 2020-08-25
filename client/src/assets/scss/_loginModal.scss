@@ -4,6 +4,10 @@
 
    span {
       color: #ff7979;
+
+      &:hover {
+          cursor: pointer;
+      }
    }
 
 .modal-header {

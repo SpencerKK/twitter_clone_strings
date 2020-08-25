@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 
+
+// redux
+import { login } from "../actions/auth";
+import { connect } from "react-redux";
+
 import {
    Button,
    Modal,
@@ -10,7 +15,7 @@ import {
    Input,
 } from "reactstrap";
 
-const LoginModal = () => {
+const LoginModal = ({ login }) => {
    const [modal, setModal] = useState(false);
    const [formData, setFormData] = useState({
       email: "",
@@ -26,7 +31,7 @@ const LoginModal = () => {
    const onSubmit = async e => {
        e.preventDefault();
        
-       console.log(formData);
+       login({ email, password })
    }
 
    const toggle = () => {
@@ -66,4 +71,4 @@ const LoginModal = () => {
    );
 };
 
-export default LoginModal;
+export default connect(null, { login })(LoginModal);

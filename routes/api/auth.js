@@ -35,7 +35,7 @@ router.post("/", [
         } else {
 
             if (row.length === 0) {
-                res.json({ msg: "Invalid credentials" })
+                return res.status(400).json({ errors: [{ msg: 'User does not exist' }] });
             } else {
 
                 let payload = {
@@ -58,7 +58,7 @@ router.post("/", [
                         }
                     )
                 } else {
-                    res.json({ msg: "Invalid Credentials..." })
+                    return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
                 }
             }
         }

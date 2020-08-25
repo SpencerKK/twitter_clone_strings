@@ -91,10 +91,14 @@ export const login = ({ email, password }) => async (dispatch) => {
     // loadUser Here
 
    } catch (err) {
-       const errors = err.response.data.errors;
+    const errors = err.response.data.errors;
 
-       if (errors) {
-           alert(errors[0].msg);
-       }
+    if (errors) {
+       alert(errors[0].msg);
+    }
+
+       dispatch({
+        type: LOGIN_FAIL
+      });
    }
 };
