@@ -31,7 +31,8 @@ router.post("/register", [
             console.log(err)
         } else {
             if (row.length > 0) {
-                return res.json({ msg: "A user already exists with that email..." })
+                return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
+
             }
 
             let salt = await bcrypt.genSalt(12);

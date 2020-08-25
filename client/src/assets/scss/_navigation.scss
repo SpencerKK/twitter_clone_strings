@@ -1,111 +1,50 @@
-.site-navigation {
-    height: 65px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    color: #fff;
-    background: #000;
+.site-nav {
+   height: 100vh;
+   border-right: 1px solid #ccc;
+   width: 15em;
+   
 
-    span {
-        font-size: 34px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        margin-left: 40px;
-    }
+   .menu-content-container {
+      height: 100%;
+      margin: 0 auto;
+      padding-right: 1em;
 
-    .fa-bars {
-        font-size: 32px;
-        width: 65px;
-        align-items: center;
-        cursor: pointer;
-        display: none;
-    }
+      h1 {
+          color: #FF7979;
+          margin: 0;
+          margin-top: 0.5em;
+          margin-left: 1.5em;
+      }
 
-    .fa-user-astronaut {
-        font-size: 20px;
-        margin: 0;
-        padding: 0;
-    }
+      ul {
+          list-style-type: none;
+          padding: 0;
+          padding-left: 1em;
 
-    .menu-content-container {
-        display: flex;
-        align-items: center;
-        padding-right: 30px;
-    }
+          li {
+              color: #000;
+              margin: 2em 0;
 
-    ul {
-        height: 100%;
-        margin-block-start: 0;
-        margin-block-end: 0;
-        padding-inline-start: 0;
-        display: flex;
-        list-style-type: none;
-        padding-right: 25px;
-        align-items: center;
-        font-weight: 400;
-
-        a {
-            text-decoration: none;
-            padding: 0 20px 0 20px;
-            font-size: 18px;
-            color: #fff;
-
-            &:hover {
-                color: rgb(152, 152, 152);
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .site-navigation {
-        .menu-content-container {
-            width: 300px;
-            height: calc(100% - 65px);
-            background: rgb(28, 28, 28);
-            position: absolute;
-            top: 65px;
-            left: -350px;
-            transition: 300ms ease left;
-            flex-direction: column-reverse;
-            padding: 0;
-            padding-left: 30px;
-            padding-top: 20px;
-            border-top: 1px solid gold;
-
-            .fa-user-astronaut {
-                font-size: 20px;
-                padding-right: 30px;
-                font-size: 40px;
-            }
+              i {
+                  padding-right: 1em;
+              }
 
             a {
+                text-decoration: none;
+                // display: block;
                 width: 100%;
-                padding: 0;
-            }
+                color: #000;
+                font-size: 1.1em;
+                font-weight: 700;
+                padding: 0.4em 2em;
+                border-radius: 20px;
+                
 
-            li {
-                height: 60px;
-                display: flex;
-                align-items: center;
+                &:hover {
+                    background: #FF7979;
+                }
             }
-
-            ul {
-                flex-direction: column;
-                padding: 0;
-            }
-
-            ul, li {
-                width: 100%;
-            }
-
-            &.active {
-                left: 0;
-            }
-        }
-        .fa-bars {
-            display: flex;
-        }
-    }
+          }
+      }
+   }
 }

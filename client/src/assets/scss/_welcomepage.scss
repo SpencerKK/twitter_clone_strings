@@ -1,114 +1,117 @@
 .welcome-page-wrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100vh;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   height: 100vh;
 
-    .welcome-left {
-        background: url("../images/welcome-bg.jpg");
-        background-size: cover;
-        background-position: center center;
-        width: 50%;
-        height: 100vh;
+   .welcome-left {
+      background: url("../images/welcome-bg.jpg");
+      background-size: cover;
+      background-position: center center;
+      width: 50%;
+      height: 100vh;
 
-        .welcome-left-text-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20vh;
-            line-height: 0.2;
-            color: #fff;
+      .welcome-left-text-box {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 20vh;
+         line-height: 0.2;
+         color: #fff;
 
-            h1 {
-                margin-bottom: 1em;
-                font-size: 2.5em;
-            }
+         h1 {
+            margin-bottom: 1em;
+            font-size: 2.5em;
+         }
 
-            p {
-                font-size: 1.2em;
-            }
-        }
-    }
+         p {
+            font-size: 1.2em;
+            margin: 1em 0;
+         }
+      }
+   }
 
-    .welcome-right {
-        background: #fff;
-        width: 50%;
-        height: 100vh;
+   .welcome-right {
+      background: #fff;
+      width: 50%;
+      height: 100vh;
 
-        .welcome-right-text-box form {
+      .welcome-right-text-box {
+         form {
             display: flex;
             flex-direction: column;
             margin-top: 25vh;
-    
+
             h1 {
-                text-align: center;
-                font-size: 2.5em;
-                margin: 0;
-                margin-bottom: 0.2em;
+               text-align: center;
+               font-size: 2.5em;
+               margin: 0;
+               margin-bottom: 0.2em;
             }
-            
-    
+
             input {
-                width: 50%;
-                margin: 0.5em auto;
-                border-radius: 7px;
-                border: 0.5px solid #ccc;
-                font-size: 0.8em;
-                padding: 0.5em 1em;
-    
-                &:focus {
-                    outline: none;
-                }
+               width: 50%;
+               margin: 0.5em auto;
+               border-radius: 7px;
+               border: 0.5px solid #ccc;
+               font-size: 0.8em;
+               padding: 0.5em 1em;
+
+               &:focus {
+                  outline: none;
+               }
             }
-    
+
             #home-register-btn {
-                max-width: 15em;
-                padding: 0.8em 3em;
-                background-color: #FF7979;
-                border: none;
+               max-width: 15em;
+               padding: 0.8em 3em;
+               background-color: #ff7979;
+               border: none;
             }
-        }
-    }
+         }
+
+      }
+   }
 }
 
 @media screen and (max-width: 900px) {
-    .welcome-page-wrapper {
-        flex-direction: column-reverse;
+   .welcome-page-wrapper {
+      flex-direction: column-reverse;
+      margin-top: 1em;
 
-        .welcome-left,
-        .welcome-right {
-            width: 100%;
+      .welcome-left,
+      .welcome-right {
+         width: 100%;
 
-            .welcome-right-text-box form {
-                margin-top: 10em;
-                margin-bottom: 3em;
+         .welcome-right-text-box {
+            form {
+               margin-top: 10em;
+               margin-bottom: 1em;
 
-                h1 {
-                    font-size: 1.5em;
-                }
+               h1 {
+                  font-size: 1.5em;
+               }
 
-                input {
-                    width: 80%;
-                    padding: 1em;
-                }
+               input {
+                  width: 80%;
+                  padding: 1em;
+               }
 
-                #home-register-btn {
-                    width: 80%;
-                    padding: 1em 5em;
-                    background-color: #FF7979;
-                    border: none;
-                }
+               #home-register-btn {
+                  width: 80%;
+                  padding: 1em 5em;
+                  background-color: #ff7979;
+                  border: none;
+               }
             }
-        }
+         }
+      }
 
-        .welcome-left {
-           
-            .welcome-left-text-box {
-                margin-top: 4em;
-                margin-bottom: 4em;
-            }
-        }
-    }
+      .welcome-left {
+         .welcome-left-text-box {
+            margin-top: 4em;
+            margin-bottom: 4em;
+         }
+      }
+   }
 }
-
-

@@ -1,49 +1,49 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const navLinks = [
    {
-      title: "Home",
-      path: "/",
+      linkName: "Home",
+      path: "/home",
+      linkIcon: "fas fa-home"
    },
    {
-      title: "Profile",
+      linkName: "Liked",
+      path: "/liked",
+      linkIcon: "fas fa-heart"
+   },
+   {
+      linkName: "Profile",
       path: "/profile",
+      linkIcon: "fas fa-user"
    },
    {
-      title: "Following",
-      path: "/following",
+      linkName: "Search",
+      path: "/search",
+      linkIcon: "fas fa-search"
    },
    {
-    title: "Login",
-    path: "/login",
- },
-   {
-      title: "Register",
-      path: "/register",
-   }
+      linkName: "Logout",
+      linkIcon: "fas fa-sign-out-alt"
+   },
 ];
 
 const Navigation = () => {
-   const [menuActive, setMenuActive] = useState(false);
-
    return (
-      <nav className="site-navigation">
-         <span>REBOUND</span>
-         <div className={`menu-content-container ${menuActive && "active"}`}>
+      <nav className="site-nav">
+         <div className="menu-content-container">
+            
             <ul>
-               {navLinks.map((link, index) => (
-                  <li key={index}>
-                     <Link to={link.path}>{link.title}</Link>
+            <h1>R</h1>
+               {navLinks.map((link, i) => (
+                   
+                  <li key={i}>
+                      
+                      <Link className="wide" to={link.path}><i className={link.linkIcon}></i>{link.linkName}</Link>
                   </li>
                ))}
             </ul>
-            <i className="fas fa-user-astronaut"></i>
          </div>
-         <i
-            className="fas fa-bars"
-            onClick={() => setMenuActive(!menuActive)}
-         ></i>
       </nav>
    );
 };

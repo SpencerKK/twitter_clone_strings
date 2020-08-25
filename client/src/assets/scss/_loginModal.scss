@@ -1,0 +1,20 @@
+.login-opt {
+   text-align: center;
+   font-size: 12px;
+
+   span {
+      color: #ff7979;
+   }
+
+.modal-header {
+    background: green;
+}
+}
+
+@media screen and (max-width: 900px) {
+   .login-opt {
+      margin: 0;
+      padding: 0;
+      margin-bottom: 2em;
+   }
+}

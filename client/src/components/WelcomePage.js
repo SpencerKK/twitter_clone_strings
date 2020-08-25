@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import LoginModal from "./LoginModal";
 
 // redux
 import { register } from "../actions/auth";
+import { connect } from "react-redux";
 
-const WelcomePage = ({ register }) => {
+const WelcomePage = ({ register, isAuthenticated }) => {
    const [formData, setFormData] = useState({
       name: "",
       email: "",
@@ -21,6 +23,10 @@ const WelcomePage = ({ register }) => {
    const onChange = (e) => {
       setFormData({ ...formData, [e.target.name]: e.target.value });
    };
+
+   if (isAuthenticated) {
+       return <Redirect to="/home" />
+   }
 
    return (
       <div className="welcome-page-wrapper">
@@ -63,10 +69,15 @@ const WelcomePage = ({ register }) => {
                   />
                   <input id="home-register-btn" type="submit" value="Submit" />
                </form>
+               <LoginModal />
             </div>
          </div>
       </div>
    );
 };
 
-export default connect(null, { register })(WelcomePage);
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { register })(WelcomePage);

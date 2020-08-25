@@ -1,4 +1,5 @@
 const express = require("express");
+const { check, validationResult } = require("express-validator");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const db = require("../../config/db.config");
@@ -13,8 +14,18 @@ const authMid = require("../../middleware/authMid");
 // api/auth
 // login user || get token is res
 // public
-router.post("/", (req, res) => {
+router.post("/", [
+    check("email", "Please include an email to login").isEmail(),
+    check("password", "Please include a valid email address").not().isEmpty()
+], (req, res) => {
     const { email, password } = req.body;
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
 
     let sql = "SELECT * FROM users WHERE email = ?";
 
@@ -96,24 +107,3 @@ module.exports = router;
 
 
 
-// router.get("/", authMid, async (req, res) => {
-//     try {
-//         let userEmail = req.user.email;
-//         let sql = "SELECT name, email FROM users WHERE email = ?";
-
-//         db.query(sql, [userEmail], async (err, row) => {
-//             if (err) {
-//                 console.log(err);
-//             } else {
-//                 if (row.length === 1) {
-//                     res.json(row[0])
-//                 } else {
-//                     res.json({ msg: "Fucked up" })
-//                 }
-//             }
-//         })
-//     } catch(err) {
-//         console.error(err.message);
-//         res.status(500).send("Server Error")
-//     }
-// })
