@@ -1,0 +1,248 @@
+.home-wrapper {
+  margin: 0 auto;
+}
+
+.home-wrapper .home-center-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 35em auto;
+      grid-template-columns: auto 35em auto;
+}
+
+.site-nav {
+  height: 100vh;
+  border-right: 1px solid #ccc;
+}
+
+.site-nav .menu-content-container {
+  height: 100%;
+}
+
+.site-nav .menu-content-container h1 {
+  color: #ff7979;
+  margin: 0;
+  margin-top: 0.5em;
+  margin-left: 1.3em;
+  font-size: 1.8em;
+}
+
+.site-nav .menu-content-container ul {
+  list-style-type: none;
+  float: right;
+  padding-right: 4em;
+}
+
+.site-nav .menu-content-container ul li {
+  color: #000;
+  margin: 2em 0;
+}
+
+.site-nav .menu-content-container ul li p {
+  display: inline;
+}
+
+.site-nav .menu-content-container ul li i {
+  padding-right: 1em;
+}
+
+.site-nav .menu-content-container ul li a {
+  text-decoration: none;
+  width: 100%;
+  color: #000;
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 0.4em 2em;
+  border-radius: 20px;
+}
+
+.site-nav .menu-content-container ul li a:hover {
+  background: #ff7979;
+}
+
+@media screen and (max-width: 1102px) {
+  .site-nav .menu-content-container ul {
+    padding-right: 0;
+  }
+  .site-nav .menu-content-container ul li p {
+    display: none !important;
+  }
+  .site-nav .menu-content-container ul li i {
+    padding-right: 0;
+  }
+  .site-nav .menu-content-container ul li a {
+    border-radius: 50%;
+    padding: 1em;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+  }
+}
+
+.welcome-page-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.welcome-page-wrapper .welcome-left {
+  background: url("../images/welcome-bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  width: 50%;
+  height: 100vh;
+}
+
+.welcome-page-wrapper .welcome-left .welcome-left-text-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20vh;
+  line-height: 0.2;
+  color: #fff;
+}
+
+.welcome-page-wrapper .welcome-left .welcome-left-text-box h1 {
+  margin-bottom: 1em;
+  font-size: 2.5em;
+}
+
+.welcome-page-wrapper .welcome-left .welcome-left-text-box p {
+  font-size: 1.2em;
+  margin: 1em 0;
+}
+
+.welcome-page-wrapper .welcome-right {
+  background: #fff;
+  width: 50%;
+  height: 100vh;
+}
+
+.welcome-page-wrapper .welcome-right .welcome-right-text-box form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 25vh;
+}
+
+.welcome-page-wrapper .welcome-right .welcome-right-text-box form h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin: 0;
+  margin-bottom: 0.2em;
+}
+
+.welcome-page-wrapper .welcome-right .welcome-right-text-box form input {
+  width: 50%;
+  margin: 0.5em auto;
+  border-radius: 7px;
+  border: 0.5px solid #ccc;
+  font-size: 0.8em;
+  padding: 0.5em 1em;
+}
+
+.welcome-page-wrapper .welcome-right .welcome-right-text-box form input:focus {
+  outline: none;
+}
+
+.welcome-page-wrapper .welcome-right .welcome-right-text-box form #home-register-btn {
+  max-width: 15em;
+  padding: 0.8em 3em;
+  background-color: #ff7979;
+  border: none;
+}
+
+@media screen and (max-width: 900px) {
+  .welcome-page-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    margin-top: 1em;
+  }
+  .welcome-page-wrapper .welcome-left,
+  .welcome-page-wrapper .welcome-right {
+    width: 100%;
+  }
+  .welcome-page-wrapper .welcome-left .welcome-right-text-box form,
+  .welcome-page-wrapper .welcome-right .welcome-right-text-box form {
+    margin-top: 10em;
+    margin-bottom: 1em;
+  }
+  .welcome-page-wrapper .welcome-left .welcome-right-text-box form h1,
+  .welcome-page-wrapper .welcome-right .welcome-right-text-box form h1 {
+    font-size: 1.5em;
+  }
+  .welcome-page-wrapper .welcome-left .welcome-right-text-box form input,
+  .welcome-page-wrapper .welcome-right .welcome-right-text-box form input {
+    width: 80%;
+    padding: 1em;
+  }
+  .welcome-page-wrapper .welcome-left .welcome-right-text-box form #home-register-btn,
+  .welcome-page-wrapper .welcome-right .welcome-right-text-box form #home-register-btn {
+    width: 80%;
+    padding: 1em 5em;
+    background-color: #ff7979;
+    border: none;
+  }
+  .welcome-page-wrapper .welcome-left .welcome-left-text-box {
+    margin-top: 4em;
+    margin-bottom: 4em;
+  }
+}
+
+.login-opt {
+  text-align: center;
+  font-size: 12px;
+}
+
+.login-opt span {
+  color: #ff7979;
+}
+
+.login-opt span:hover {
+  cursor: pointer;
+}
+
+.login-opt .modal-header {
+  background: green;
+}
+
+@media screen and (max-width: 900px) {
+  .login-opt {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 2em;
+  }
+}
+
+.right-bar {
+  height: 100vh;
+  border-left: 1px solid #ccc;
+}
+
+body {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/*# sourceMappingURL=base.css.map */

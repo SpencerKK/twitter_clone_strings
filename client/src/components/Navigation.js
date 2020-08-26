@@ -1,30 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const navLinks = [
    {
-      linkName: "Home",
-      path: "/home",
-      linkIcon: "fas fa-home"
+      linkName: 'Home',
+      path: '/home',
+      linkIcon: 'fa fa-home',
    },
    {
-      linkName: "Liked",
-      path: "/liked",
-      linkIcon: "fas fa-heart"
+      linkName: 'Liked',
+      path: '/liked',
+      linkIcon: 'far fa-heart',
    },
    {
-      linkName: "Profile",
-      path: "/profile",
-      linkIcon: "fas fa-user"
+      linkName: 'Profile',
+      path: '/profile',
+      linkIcon: 'far fa-user',
    },
    {
-      linkName: "Search",
-      path: "/search",
-      linkIcon: "fas fa-search"
+      linkName: 'Search',
+      path: '/search',
+      linkIcon: 'fas fa-search',
    },
    {
-      linkName: "Logout",
-      linkIcon: "fas fa-sign-out-alt"
+      linkName: 'Logout',
+      linkIcon: 'fas fa-sign-out-alt',
    },
 ];
 
@@ -32,14 +32,14 @@ const Navigation = () => {
    return (
       <nav className="site-nav">
          <div className="menu-content-container">
-            
             <ul>
-            <h1>R</h1>
+               <h1>R</h1>
                {navLinks.map((link, i) => (
-                   
                   <li key={i}>
-                      
-                      <Link className="wide" to={link.path}><i className={link.linkIcon}></i>{link.linkName}</Link>
+                     <Link className="wide" to={link.path}>
+                        <i className={link.linkIcon}></i>
+                        <p>{link.linkName}</p>
+                     </Link>
                   </li>
                ))}
             </ul>

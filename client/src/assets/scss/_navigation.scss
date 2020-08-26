@@ -1,50 +1,76 @@
 .site-nav {
-   height: 100vh;
-   border-right: 1px solid #ccc;
-   width: 15em;
-   
+  height: 100vh;
+  border-right: 1px solid #ccc;
 
-   .menu-content-container {
-      height: 100%;
-      margin: 0 auto;
-      padding-right: 1em;
+  .menu-content-container {
+    height: 100%;
+    margin-top: 1em;
+
+    ul {
+      list-style-type: none;
+      float: right;
+      padding-right: 4em;
 
       h1 {
-          color: #FF7979;
-          margin: 0;
-          margin-top: 0.5em;
-          margin-left: 1.5em;
+        color: #ff7979;
+        font-size: 1.8em;
+        margin-left: 0.7em;
       }
 
-      ul {
-          list-style-type: none;
-          padding: 0;
-          padding-left: 1em;
+      li {
+        color: #000;
+        margin: 1.5em auto 2em auto;
 
-          li {
-              color: #000;
-              margin: 2em 0;
+        p {
+          display: inline;
+        }
 
-              i {
-                  padding-right: 1em;
-              }
+        i {
+          padding-right: 1em;
+        }
 
-            a {
-                text-decoration: none;
-                // display: block;
-                width: 100%;
-                color: #000;
-                font-size: 1.1em;
-                font-weight: 700;
-                padding: 0.4em 2em;
-                border-radius: 20px;
-                
+        a {
+          text-decoration: none;
+          // display: block;
+          width: 100%;
+          color: #000;
+          font-size: 1.1em;
+          font-weight: 700;
+          padding: 0.4em 1em;
+          border-radius: 20px;
 
-                &:hover {
-                    background: #FF7979;
-                }
-            }
+          &:hover {
+            background: #ff797945;
+            color: #ff7979;
           }
+        }
       }
-   }
+    }
+  }
+}
+
+@media screen and (max-width: 1102px) {
+  .site-nav {
+    .menu-content-container {
+      width: 80%;
+      margin: 1em auto 0 auto;
+      ul {
+        padding-right: 0;
+
+        h1 {
+          margin-left: 0.6em;
+        }
+
+        li {
+          p {
+            display: none !important;
+          }
+
+          i {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
 }

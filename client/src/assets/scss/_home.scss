@@ -1,4 +1,7 @@
 .home-wrapper {
-
-    display: flex;
+  margin: 0 auto;
+  .home-center-container {
+    display: grid;
+    grid-template-columns: auto 35em auto;
+  }
 }
