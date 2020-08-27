@@ -21,39 +21,34 @@ router.post("/register", [
         return res.status(400).json({ errors: errors.array() });
     }
 
-    let name = req.body.name;
-    let email = req.body.email;
-    let password = req.body.password;
+    let { name, email, password } = req.body;
 
     let sql = "SELECT * FROM users WHERE email = ?";
     db.query(sql, [email], async (err, row) => {
         if (err) {
-            console.log(err)
+            console.log(err);
         } else {
             if (row.length > 0) {
                 return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
-
             }
 
             let salt = await bcrypt.genSalt(12);
-
             password = await bcrypt.hash(password, salt);
-
             let userInsertData = { name, email, password };
 
             db.query("INSERT INTO users SET ?", userInsertData, (err, rows, fields) => {
                 if (err) {
                     console.log(err.message);
-                } else { 
-                    console.log("User Created")
+                } else {
+                    console.log("User Created");
                 }
-            })
+            });
 
             let payload = {
                 user: {
                     email
                 }
-            }
+            };
 
             jwt.sign(
                 payload,
@@ -61,14 +56,14 @@ router.post("/register", [
                 { expiresIn: "360000" },
                 (err, token) => {
                     if (err) {
-                        console.log(err.message)
+                        console.log(err.message);
                     } else {
-                        res.json({ token })
+                        res.json({ token });
                     }
                 }
-            )
+            );
         }
-    })
-})
+    });
+});
 
 module.exports = router;
