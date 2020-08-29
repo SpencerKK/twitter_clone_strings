@@ -11,10 +11,9 @@
       float: right;
       padding-right: 4em;
 
-      h1 {
-        color: $brand-peach;
-        font-size: 1.8em;
-        margin-left: 0.7em;
+      #nav-site-logo {
+        width: 2em;
+        margin-left: 1.1em;
       }
 
       li {
@@ -34,7 +33,7 @@
           // display: block;
           width: 100%;
           color: #000;
-          font-size: 1.1em;
+          font-size: 1.2em;
           font-weight: 700;
           padding: 0.4em 1em;
           border-radius: 20px;

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// @ts-ignore
+import siteLogo from "../assets/images/rebound-logo.png";
+
 const navLinks = [
    {
       linkName: 'Home',
@@ -33,7 +36,7 @@ const Navigation = () => {
       <nav className="site-nav">
          <div className="menu-content-container">
             <ul>
-               <h1>R</h1>
+               <img src={siteLogo} alt="rebound-site-logo-img" id="nav-site-logo" />
                {navLinks.map((link, i) => (
                   <li key={i}>
                      <Link className="wide" to={link.path}>
