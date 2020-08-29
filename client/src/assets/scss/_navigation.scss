@@ -1,6 +1,6 @@
 .site-nav {
   height: 100vh;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid $border-color;
 
   .menu-content-container {
     height: 100%;
@@ -12,7 +12,7 @@
       padding-right: 4em;
 
       h1 {
-        color: #ff7979;
+        color: $brand-peach;
         font-size: 1.8em;
         margin-left: 0.7em;
       }

@@ -1,4 +1,9 @@
 .right-bar {
   height: 100vh;
-  border-left: 1px solid #ccc;
+  border-left: 1px solid $border-color;
+
+  p {
+    font-size: 1.1em;
+    font-weight: 700;
+  }
 }

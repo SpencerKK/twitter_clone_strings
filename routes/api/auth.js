@@ -42,10 +42,10 @@ router.post("/", [
                     user: {
                         email
                     }
-                }
-    
+                };
+
                 const isMatch = await bcrypt.compare(password, row[0].password);
-    
+
                 if (isMatch) {
                     jwt.sign(
                         payload,
@@ -54,16 +54,16 @@ router.post("/", [
                         (err, token) => {
                             if (err) throw err;
                             res.json({ token });
-                            
+
                         }
-                    )
+                    );
                 } else {
                     return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
                 }
             }
         }
-    })
-})
+    });
+});
 
 
 // get
@@ -72,22 +72,23 @@ router.post("/", [
 // private
 router.get("/", authMid, (req, res) => {
     try {
+        // @ts-ignore
         let emailInToken = req.user;
 
-        let sql = "SELECT name, email FROM users WHERE email = ?";
+        let sql = "SELECT name, email, id FROM users WHERE email = ?";
 
-       db.query(sql, [emailInToken.email], (err, row) => {
-           if (err) {
-               console.log(err);
-           } else {
-               res.json(row[0])
-           }
-       })
+        db.query(sql, [emailInToken.email], (err, row) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(row[0]);
+            }
+        });
     } catch (err) {
         console.error(err.message);
-        res.status(500).send("Server Error")
+        res.status(500).send("Server Error");
     }
-})
+});
 
 
 module.exports = router;

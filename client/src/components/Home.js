@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Navigation from "./Navigation";
+import MainStream from "./MainStream";
 import RightBar from "./RightBar";
 
 const Home = ({ isAuthenticated }) => {
@@ -15,7 +16,7 @@ const Home = ({ isAuthenticated }) => {
         <div className="home-wrapper">
             <div className="home-center-container">
                 <Navigation />
-                <p>Home Page Content</p>
+                <MainStream />
                 <RightBar />
             </div>
         </div>
