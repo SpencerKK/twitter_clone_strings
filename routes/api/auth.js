@@ -28,6 +28,7 @@ router.post("/", [
 
 
     let sql = "SELECT * FROM users WHERE email = ?";
+    let user_id;
 
     db.query(sql, [email], async (err, row) => {
         if (err) {
@@ -38,9 +39,11 @@ router.post("/", [
                 return res.status(400).json({ errors: [{ msg: 'User does not exist' }] });
             } else {
 
+                user_id = row[0].id
+
                 let payload = {
                     user: {
-                        email
+                        user_id
                     }
                 };
 
@@ -73,11 +76,11 @@ router.post("/", [
 router.get("/", authMid, (req, res) => {
     try {
         // @ts-ignore
-        let emailInToken = req.user;
+        let userId = req.user.user_id;
 
-        let sql = "SELECT name, email, id FROM users WHERE email = ?";
+        let sql = "SELECT name, email, id FROM users WHERE id = ?";
 
-        db.query(sql, [emailInToken.email], (err, row) => {
+        db.query(sql, [userId], (err, row) => {
             if (err) {
                 console.log(err);
             } else {
