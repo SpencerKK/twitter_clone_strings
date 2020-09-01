@@ -1,5 +1,7 @@
 import React from "react";
 
+import PostCard from "./layout/PostCard";
+
 const MainStream = () => {
   return (
     <div className="main-stream-wrapper">
@@ -16,6 +18,11 @@ const MainStream = () => {
             <input id="home-post-btn" type="submit" value="post" />
           </div>
         </form>
+      </div>
+      <div className="post-stream">
+        <PostCard />
+        <PostCard />
+        <PostCard />
       </div>
     </div>
   );

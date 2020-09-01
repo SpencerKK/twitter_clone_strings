@@ -1,0 +1,27 @@
+.post-card-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 1em 1.5em 0 0;
+  border-bottom: 2px solid $border-color;
+
+  i {
+    font-size: 1.5em;
+    background: $border-color;
+    width: 4em;
+    height: 2em;
+    color: #70747c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+
+  .post-card-content {
+    p {
+      font-size: 0.9em;
+      font-weight: 500;
+    }
+  }
+}
